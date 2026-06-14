@@ -1,9 +1,14 @@
 import sys
+import math
 
-OPERATIONS = ["mean", "median"]
+OPERATIONS = ["mean", "median", "stdev"]
 
 def mean(values):
     return sum(values) / len(values)
+
+def stdev(values):
+    m = mean(values)
+    return math.sqrt(sum((x - m) ** 2 for x in values) / len(values))
 
 def main():
     op = sys.argv[1]
@@ -12,6 +17,8 @@ def main():
         print(mean(nums))
     elif op == "median":
         print(median(nums))
+    elif op == "stdev":
+        print(stdev(nums))
     else:
         print(f"Unknown operation '{op}'. Available: {OPERATIONS}")
 
