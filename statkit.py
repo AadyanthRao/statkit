@@ -11,7 +11,8 @@ def stdev(values):
     return math.sqrt(sum((x - m) ** 2 for x in values) / len(values))
 
 def median(values):
-    if not values: raise ValueError("no data")
+    if not values: 
+        raise ValueError("no data")
     s = sorted(values)
     n = len(s)
     mid = n // 2
