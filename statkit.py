@@ -10,6 +10,16 @@ def stdev(values):
     m = mean(values)
     return math.sqrt(sum((x - m) ** 2 for x in values) / len(values))
 
+def median(values):
+    if not values: 
+        raise ValueError("no data")
+    s = sorted(values)
+    n = len(s)
+    mid = n // 2
+    if n % 2 == 0:
+        return (s[mid - 1] + s[mid]) / 2
+    return s[mid]
+
 def main():
     op = sys.argv[1]
     nums = [float(x) for x in sys.argv[2:]]
@@ -25,11 +35,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-def median(values):
-    if not values: raise ValueError("no data")
-    s = sorted(values)
-    n = len(s)
-    mid = n // 2
-    if n % 2 == 0:
-        return (s[mid - 1] + s[mid]) / 2
-    return s[mid]
